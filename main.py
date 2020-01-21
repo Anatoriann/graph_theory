@@ -1,11 +1,11 @@
 import stable_marriage
 import yaml
+from graph_theory_project.yaml_parser import parser
 
 if __name__ == "__main__":
     yaml_path = input("Input the yaml source path : (./path)\n")
 
-    with open(yaml_path, "r") as file:
-        global_dict = yaml.safe_load(file)
+    global_dict = parser(yaml_path)
 
     choice = 'n'
     while choice.lower() not in ["s", "f"]:

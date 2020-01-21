@@ -14,17 +14,14 @@ seta:
 
 setb:
   cyril:
-    capacity: 1
     ranking:
       enseeiht: 1
       ensimag: 2
   guilhem:
-    capacity: 1
     ranking:
       enseeiht: 1
       ensimag: 2
   titouan:
-    capacity: 1
     ranking:
       enseeiht: 1
       ensimag: 2
