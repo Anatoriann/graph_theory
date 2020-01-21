@@ -2,17 +2,9 @@ import stable_marriage
 import yaml
 
 if __name__ == "__main__":
-    print('parser')
-    global_dict = {}
-    # chooser = {'cyril': {'capacity': 1, 'ranking': {'enseeiht': 1, 'ensimag': 2}},
-    #            'guilhem': {'capacity': 1, 'ranking': {'enseeiht': 1, 'ensimag': 2}},
-    #            'titouan': {'capacity': 1, 'ranking': {'ensimag': 2, 'enseeiht': 1}}}
-    # chosen = {'enseeiht': {'capacity': 1, 'ranking': {'cyril': 1, 'guilhem': 2, 'titouan': 3}},
-    #           'ensimag': {'capacity': 2, 'ranking': {'cyril': 2, 'titouan': 3, 'guilhem': 1}}}
-    # global_dict['seta'] = chooser
-    # global_dict['setb'] = chosen
+    yaml_path = input("Input the yaml source path : (./path)\n")
 
-    with open("test2.yaml", "r") as file:
+    with open(yaml_path, "r") as file:
         global_dict = yaml.safe_load(file)
 
     choice = 'n'
