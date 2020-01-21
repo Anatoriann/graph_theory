@@ -42,8 +42,8 @@ def stable_marriage(p_chooser: dict, p_chosen: dict) -> dict:
                     break
 
     # In the field ranking, we going to have 3 possible values :
-    # - A : Accepted by the chosen
-    # - R : Rejected by the chosen
+    # - Accepted : Accepted by the chosen
+    # - Rejected : Rejected by the chosen
     # - a name : Representing the chosen we want, the chooser don't have seen the chosen yet
 
     # Ending condition
@@ -58,15 +58,15 @@ def stable_marriage(p_chooser: dict, p_chosen: dict) -> dict:
             # Et attribuer si besoin
             for i in range(len(sorted_choice_chooser[chooser])):
                 # If the chooser is already serenading, we increment the nb of already attribuate for the step
-                if sorted_choice_chooser[chooser][i].lower() == 'a':
+                if sorted_choice_chooser[chooser][i].lower() == 'accepted':
                     nb_attribuate += 1
                 # Since we know that the chosen are sort, we can just see if it's not attributed yet and attribute it
                 elif nb_attribuate < pretendant_capacity:
-                    if sorted_choice_chooser[chooser][i].lower() != 'r':
+                    if sorted_choice_chooser[chooser][i].lower() != 'rejected':
                         # Add the chooser to the chosen list
                         p_chosen[sorted_choice_chooser[chooser][i]]['pretendant'].append(chooser)
                         nb_attribuate += 1
-                        sorted_choice_chooser[chooser][i] = 'a'
+                        sorted_choice_chooser[chooser][i] = 'accepted'
 
         verified = True
         for chosen in k_chosen:
@@ -92,7 +92,7 @@ def stable_marriage(p_chooser: dict, p_chosen: dict) -> dict:
                     # Get the rank of the school for the chooser
                     chooser_rank = p_chooser[chooser]['ranking'][chosen]
                     # Say rejected
-                    sorted_choice_chooser[chooser][chooser_rank - 1] = 'r'
+                    sorted_choice_chooser[chooser][chooser_rank - 1] = 'rejected'
 
     # Create a dict with only the name of the chosen and the list of chooser
     return_dict = {}

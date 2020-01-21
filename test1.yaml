@@ -1,0 +1,39 @@
+seta:
+  A:
+    capacity: 1
+    ranking:
+      alpha: 3
+      beta: 1
+      gamma: 2
+  B:
+    capacity: 1
+    ranking:
+      alpha: 2
+      beta: 3
+      gamma: 1
+  C:
+    capacity : 1
+    ranking:
+      alpha: 1
+      beta: 2
+      gamma: 3
+
+setb:
+  alpha:
+    capacity: 1
+    ranking:
+      A: 1
+      B: 2
+      C: 3
+  beta:
+    capacity: 1
+    ranking:
+      A: 3
+      B: 1
+      C: 2
+  gamma:
+    capacity: 1
+    ranking:
+      A: 2
+      B: 3
+      C: 1

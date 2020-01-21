@@ -1,0 +1,30 @@
+seta:
+  enseeiht:
+    capacity: 2
+    ranking:
+      cyril: 1
+      guilhem: 2
+      titouan: 3
+  ensimag:
+    capacity: 1
+    ranking:
+      cyril: 2
+      titouan: 1
+      guilhem: 3
+
+setb:
+  cyril:
+    capacity: 1
+    ranking:
+      enseeiht: 1
+      ensimag: 2
+  guilhem:
+    capacity: 1
+    ranking:
+      enseeiht: 1
+      ensimag: 2
+  titouan:
+    capacity: 1
+    ranking:
+      enseeiht: 1
+      ensimag: 2
