@@ -40,7 +40,7 @@ def parser(path):
             if not 1 <= ranks_b <= nb_elements_set_a:
                 print("ERROR : One or more ranks of the element '" + str(b_val) + "' in the data set '" + str(set_b) + "' have an incorrect value. \n")
                 errors_found = True
-                
+
     for a_val in loaded_data[set_a]:
         set_a_capacity += loaded_data[set_a][a_val]["capacity"]
         for b_val in loaded_data[set_b]:

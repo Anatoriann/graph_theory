@@ -3,13 +3,14 @@ from algorithms import stable_marriage
 from algorithms.yaml_parser import parser
 
 if __name__ == "__main__":
-    yaml_path = input("Input the yaml source path : (./path)\n")
+
+    yaml_path = input("Please enter the path to the YAML file : \n")
 
     global_dict = parser(yaml_path)
 
     choice = 'n'
     while choice.lower() not in ["s", "f"]:
-        choice = input("Which set is the chooser (the one which do the serenade)? first (f) or second (s)\n")
+        choice = input("Please enter which set of your file will do the bidding [first set (f) / second set (s)] : \n")
 
     l_key = list(global_dict.keys())
     if choice == 'f':
@@ -24,4 +25,4 @@ if __name__ == "__main__":
     with open("result.yaml", "w") as file:
         yaml.dump(matching_dict, file)
 
-    print("Results in ./result.yaml")
+    print("You can find the results in ./result.yaml")

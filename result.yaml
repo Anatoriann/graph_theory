@@ -1,3 +1,4 @@
-alpha: [C]
-beta: [A]
-gamma: [B]
+A: [gamma]
+B: [delta]
+C: [alpha]
+D: [beta]
