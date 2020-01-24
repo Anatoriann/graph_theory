@@ -13,6 +13,8 @@ def parser(path):
     keys_data = loaded_data.keys()
     set_a = list(keys_data)[0]
     set_b = list(keys_data)[1]
+    set_a_capacity = 0
+    set_b_capacity = 0
     errors_found = False
 
     for keys in list(keys_data):
@@ -22,16 +24,23 @@ def parser(path):
                 struct["capacity"] = 1
 
     for a_val in loaded_data[set_a]:
+        set_a_capacity += loaded_data[set_a][a_val]["capacity"]
         for b_val in loaded_data[set_b]:
             if b_val not in list(loaded_data[set_a][a_val]["ranking"].keys()):
                 print("ERROR : The data set '" + str(a_val) + "' is missing value : " + str(b_val) + "\n")
                 errors_found = True
 
     for b_val in loaded_data[set_b]:
+        set_b_capacity += loaded_data[set_b][b_val]["capacity"]
         for a_val in loaded_data[set_a]:
             if a_val not in list(loaded_data[set_b][b_val]["ranking"].keys()):
                 print("ERROR : The data set '" + str(b_val) + "' is missing value : " + str(a_val) + "\n")
                 errors_found = True
+
+    if set_a_capacity != set_b_capacity:
+        print("ERROR : The total capacity of the data set '" + str(set_a) + "' is not equals to the total capacity of "
+                                                                            "the data set `" + str(set_b) + "`\n")
+        errors_found = True
 
     for keys in list(keys_data):
         for values in loaded_data[keys]:
@@ -41,7 +50,7 @@ def parser(path):
                 errors_found = True
 
     if errors_found:
-        raise RuntimeError("INVALID YAML, PLEASE CHECK THE ERROR(S) LOG(S) SHOWN ABOVE")
+        raise RuntimeError("INVALID YAML FILE, PLEASE CHECK THE ERROR(S) LOG(S) SHOWN ABOVE")
 
     return loaded_data
 

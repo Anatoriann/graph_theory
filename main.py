@@ -1,6 +1,6 @@
-import stable_marriage
 import yaml
-from graph_theory_project.yaml_parser import parser
+from algorithms import stable_marriage
+from algorithms.yaml_parser import parser
 
 if __name__ == "__main__":
     yaml_path = input("Input the yaml source path : (./path)\n")
