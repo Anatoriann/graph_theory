@@ -15,13 +15,29 @@ def parser(path):
     set_b = list(keys_data)[1]
     set_a_capacity = 0
     set_b_capacity = 0
+    nb_elements_set_a = 0
+    nb_elements_set_b = 0
     errors_found = False
 
     for keys in list(keys_data):
         for values in loaded_data[keys]:
+            if keys == set_a:
+                nb_elements_set_a += 1
+            elif keys == set_b:
+                nb_elements_set_b += 1
             struct = loaded_data[keys][values]
             if "capacity" not in struct:
                 struct["capacity"] = 1
+
+    for a_val in loaded_data[set_a]:
+        for ranks_a in loaded_data[set_a][a_val]["ranking"].values():
+            if not 1 <= ranks_a <= nb_elements_set_b:
+                print("FEELS BAD MAN")
+
+    for b_val in loaded_data[set_b]:
+        for ranks_b in loaded_data[set_b][b_val]["ranking"].values():
+            if not 1 <= ranks_b <= nb_elements_set_a:
+                print("FEELS BAD MAN")
 
     for a_val in loaded_data[set_a]:
         set_a_capacity += loaded_data[set_a][a_val]["capacity"]
@@ -41,6 +57,8 @@ def parser(path):
         print("ERROR : The total capacity of the data set '" + str(set_a) + "' is not equals to the total capacity of "
                                                                             "the data set `" + str(set_b) + "`\n")
         errors_found = True
+
+
 
     for keys in list(keys_data):
         for values in loaded_data[keys]:

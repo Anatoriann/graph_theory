@@ -16,8 +16,8 @@ if __name__ == "__main__":
         chooser = global_dict[l_key[0]]
         chosen = global_dict[l_key[1]]
     else:
-        chooser = global_dict[l_key[0]]
-        chosen = global_dict[l_key[1]]
+        chooser = global_dict[l_key[1]]
+        chosen = global_dict[l_key[0]]
 
     matching_dict = stable_marriage.stable_marriage(chooser, chosen)
 
